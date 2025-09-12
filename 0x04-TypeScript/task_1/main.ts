@@ -1,39 +1,21 @@
-// 0x04-TypeScript/task_1/js/main.ts
+// 1. Let's build a Teacher interface
 
-export interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  // allow any extra attributes (e.g., contract)
-  [key: string]: any;
+interface Teacher {
+  readonly firstName: string;     // cannot be changed after initialization
+  readonly lastName: string;      // cannot be changed after initialization
+  fullTimeEmployee: boolean;      // required
+  yearsOfExperience?: number;     // optional
+  location: string;               // required
+  [key: string]: any;             // allow any other properties like contract
 }
 
-export const teacher1: Teacher = {
+// Example usage
+const teacher3: Teacher = {
   firstName: 'John',
   lastName: 'Doe',
-  fullTimeEmployee: true,
-  location: 'London'
-};
-
-export const teacher2: Teacher = {
-  firstName: 'Mary',
-  lastName: 'Wambui',
   fullTimeEmployee: false,
-  yearsOfExperience: 5,
-  location: 'Nairobi',
-  contract: true
-};
-
-export const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'Doe',
   location: 'London',
-  contract: false
+  contract: false,  // extra property allowed
 };
 
-console.log(teacher1);
-console.log(teacher2);
 console.log(teacher3);
