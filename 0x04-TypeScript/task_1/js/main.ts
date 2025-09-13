@@ -14,7 +14,7 @@ export interface Director extends Teacher {
 }
 
 // 3) Function interface for printTeacher
-export interface printTeacherFunction {
+export interface Function printTeacher {
   (firstName: string, lastName: string): string;
 }
 
