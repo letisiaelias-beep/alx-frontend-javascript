@@ -46,11 +46,12 @@ export class Teacher implements TeacherInterface {
 
 // 3) createEmployee function
 export function createEmployee(salary: number | string) {
-  if (typeof salary === 'number' && salary < 500) {
-    return new Teacher();
-  } else {
-    return new Director();
+  if (typeof salary === 'number') {
+    if (salary < 500) {
+      return new Teacher();
+    }
   }
+  return new Director();
 }
 }
 
