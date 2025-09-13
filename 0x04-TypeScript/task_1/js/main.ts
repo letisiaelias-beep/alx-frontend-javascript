@@ -18,10 +18,10 @@ export interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// 4) printTeacher function implementation
-export const printTeacher: printTeacherFunction = (firstName, lastName) => {
+// 4) Function printTeacher implementation
+export function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
-};
+}
 
 // ======== Examples ========
 
