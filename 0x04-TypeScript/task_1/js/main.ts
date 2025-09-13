@@ -42,3 +42,10 @@ export const printTeacher: printTeacherFunction = (firstName, lastName) => {
   const initial = firstName.charAt(0).toUpperCase();
   return `${initial}. ${lastName}`;
 };
+
+export const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+  const fn = (firstName ?? '').toString().trim();
+  const ln = (lastName ?? '').toString().trim();
+  const initial = fn.length > 0 ? fn.charAt(0).toUpperCase() : '';
+  return `${initial}. ${ln}`;
+};
