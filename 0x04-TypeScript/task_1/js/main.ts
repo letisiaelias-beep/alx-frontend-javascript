@@ -1,5 +1,4 @@
-// task_1/js/main.ts
-
+// Teacher interface
 export interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
@@ -9,29 +8,27 @@ export interface Teacher {
   [key: string]: any;
 }
 
-// Directors extends Teacher and adds numberOfReports
+// Directors interface extends Teacher
 export interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// Example teachers (keep if present for previous task)
-export const teacher3: Teacher = {
+// Teacher example
+const teacher3: Teacher = {
   firstName: 'John',
   lastName: 'Doe',
   fullTimeEmployee: false,
   location: 'London',
   contract: false,
 };
-
 console.log(teacher3);
 
-// Example director required by Task 2
-export const director1: Directors = {
+// Director example
+const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
   fullTimeEmployee: true,
   location: 'London',
-  numberOfReports: 17
+  numberOfReports: 17,
 };
-
 console.log(director1);
