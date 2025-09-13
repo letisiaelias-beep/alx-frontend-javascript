@@ -70,7 +70,6 @@ console.log(createEmployee('$500').constructor.name); // Director
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
-// Task 7: String literal types
 
 // 1) Define the string literal type
 export type Subjects = 'Math' | 'History';
