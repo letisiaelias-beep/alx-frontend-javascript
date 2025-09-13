@@ -5,37 +5,34 @@ export interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any; // allows additional attributes
+  [key: string]: any;
 }
 
-// 2) Directors interface extends Teacher
+// 2) Directors interface
 export interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// 3) Function interface for printTeacher
+// 3) Interface for printTeacher function
 export interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// 4) Function printTeacher implementation with destructuring
-export const printTeacher: printTeacherFunction = function({ firstName, lastName }: { firstName: string; lastName: string }): string {
+// 4) printTeacher function as required
+export function printTeacher(firstName: string, lastName: string): string {
   return `${firstName[0]}. ${lastName}`;
-};
+}
 
-// ======== Examples ========
-
-// Teacher example
+// ===== Examples =====
 const teacher3: Teacher = {
   firstName: 'John',
-  fullTimeEmployee: false,
   lastName: 'Doe',
   location: 'London',
+  fullTimeEmployee: false,
   contract: false,
 };
 console.log(teacher3);
 
-// Directors example
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -45,5 +42,4 @@ const director1: Directors = {
 };
 console.log(director1);
 
-// printTeacher example
-console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
+console.log(printTeacher("John", "Doe")); // J. Doe
