@@ -32,3 +32,13 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 console.log(director1);
+// printTeacherFunction interface here
+export interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+// implementation of printTeacher below it
+export const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  const initial = firstName.charAt(0).toUpperCase();
+  return `${initial}. ${lastName}`;
+};
