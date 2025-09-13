@@ -1,7 +1,6 @@
 // task_2/js/main.ts
 
 // 1) Interfaces
-
 export interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -15,16 +14,13 @@ export interface TeacherInterface {
 }
 
 // 2) Classes implementing the interfaces
-
 export class Director implements DirectorInterface {
   workFromHome(): string {
     return 'Working from home';
   }
-
   getCoffeeBreak(): string {
     return 'Getting a coffee break';
   }
-
   workDirectorTasks(): string {
     return 'Getting to director tasks';
   }
@@ -34,11 +30,9 @@ export class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from home';
   }
-
   getCoffeeBreak(): string {
     return 'Cannot have a break';
   }
-
   workTeacherTasks(): string {
     return 'Getting to work';
   }
@@ -50,32 +44,17 @@ export function createEmployee(salary: number | string) {
     if (salary < 500) {
       return new Teacher();
     }
+    return new Director();
   }
   return new Director();
 }
 
-// Type predicate to check if employee is a Director
+// 4) Type predicate to check Director (Task 6)
 export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
-// Function to execute work based on employee type
-export function executeWork(employee: Director | Teacher): string {
-  if (isDirector(employee)) {
-    return employee.workDirectorTasks();
-  } else {
-    return employee.workTeacherTasks();
-  }
-}
-
-}
-
-// 4) Type predicate to check Director
-export function isDirector(employee: Director | Teacher): employee is Director {
-  return employee instanceof Director;
-}
-
-// 5) executeWork - calls the correct task method
+// 5) executeWork - calls the correct task method (Task 6)
 export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
@@ -83,13 +62,9 @@ export function executeWork(employee: Director | Teacher): string {
   return employee.workTeacherTasks();
 }
 
-// ======= Example logs (for manual verification) =======
-
-// The examples below demonstrate expected outcomes.
-// The autograder will run its own checks; these logs help you verify locally.
-
-console.log(createEmployee(200).constructor.name);   // Teacher
-console.log(createEmployee(1000).constructor.name);  // Director
+// ======= Example logs (manual verification) =======
+console.log(createEmployee(200).constructor.name);    // Teacher
+console.log(createEmployee(1000).constructor.name);   // Director
 console.log(createEmployee('$500').constructor.name); // Director
 
 console.log(executeWork(createEmployee(200)));   // Getting to work
