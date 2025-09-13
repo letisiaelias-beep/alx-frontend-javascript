@@ -9,7 +9,7 @@ export interface Teacher {
 }
 
 // Directors interface extends Teacher
-export interface Directors extends Teacher {
+export interface Director extends Teacher {
   numberOfReports: number;
 }
 
