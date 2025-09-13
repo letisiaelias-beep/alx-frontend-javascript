@@ -71,9 +71,6 @@ console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
 
-// 1) Define the string literal type
-export type Subjects = 'Math' | 'History';
-
 // 2) teachClass function
 
 export type Subjects = 'Math' | 'History';
@@ -82,9 +79,11 @@ export function teachClass(todayClass: Subjects): string {
   if (todayClass === 'Math') {
     return 'Teaching Math';
   }
-  return 'Teaching History';
-}
-
+  if (todayClass === 'History') {
+    return 'Teaching History';
+  }
+  // Fallback, should never be reached if Subjects is strictly 'Math' | 'History'
+  return '';
 }
 
 // Example checks
