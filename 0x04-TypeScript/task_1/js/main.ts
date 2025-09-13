@@ -44,3 +44,35 @@ const director1: Directors = {
 console.log(director1);
 
 console.log(printTeacher("John", "Doe")); // J. Doe
+
+
+// Interface that describes the public instance shape of the class
+export interface StudentClassInterface {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Interface that describes the constructor signature (describes the constructor)
+export interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+// The class implementing the interface
+export class StudentClass implements StudentClassInterface {
+  constructor(public firstName: string, public lastName: string) {}
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Example usage (keep for manual testing / logs)
+const studentExample = new StudentClass('Alice', 'Wonders');
+console.log(studentExample.workOnHomework()); // "Currently working"
+console.log(studentExample.displayName());   // "Alice"
