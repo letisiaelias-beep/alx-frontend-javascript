@@ -71,21 +71,18 @@ console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
 
-// 2) teachClass function
+// Define a string literal type
+type Subjects = "Math" | "History";
 
-export type Subjects = 'Math' | 'History';
-
-export function teachClass(todayClass: Subjects): string {
-  if (todayClass === 'Math') {
-    return 'Teaching Math';
-  }
-  if (todayClass === 'History') {
-    return 'Teaching History';
-  }
-  // Fallback, should never be reached if Subjects is strictly 'Math' | 'History'
-  return '';
+// Function that accepts only 'Math' or 'History'
+function teachClass(todayClass: Subjects): string {
+    if (todayClass === "Math") {
+        return "Teaching Math";
+    } else {
+        return "Teaching History";
+    }
 }
 
-// Example checks
-console.log(teachClass('Math'));     // Teaching Math
-console.log(teachClass('History'));  // Teaching History
+// Test the function
+console.log(teachClass("Math"));      // Output: Teaching Math
+console.log(teachClass("History"));   // Output: Teaching History
