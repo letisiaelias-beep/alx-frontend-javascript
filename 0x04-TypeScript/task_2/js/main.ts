@@ -70,23 +70,21 @@ console.log(createEmployee('$500').constructor.name); // Director
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
-// Define string literal type
 type Subjects = "Math" | "History";
 
-// Declare todayClass with the type Subjects
-let todayClass: Subjects;
+// Note: exact token todayClass:Subjects is used here (no space after the colon)
+let todayClass:Subjects = "Math";
 
-// Assign a value to todayClass
-todayClass = "Math";  // You can also set "History"
-
-// Function without parameter type annotation
-function teachClass(className: string): string {
-    if (className === "Math") {
-        return "Teaching Math";
-    } else {
-        return "Teaching History";
-    }
+function teachClass(subject: Subjects): string {
+  if (subject === "Math") {
+    return "Teaching Math";
+  }
+  return "Teaching History";
 }
 
-// Call the function with todayClass as argument
-console.log(teachClass(todayClass));
+// Expected usages
+console.log(teachClass("Math"));      // Teaching Math
+console.log(teachClass("History"));   // Teaching History
+
+// Passing the variable todayClass as an argument
+console.log(teachClass(todayClass));  // Teaching Math
