@@ -9,7 +9,7 @@ export interface Teacher {
 }
 
 // 2) Directors interface
-export interface Directors extends Teacher {
+export interface Director extends Teacher {
   numberOfReports: number;
 }
 
@@ -19,7 +19,7 @@ export interface printTeacherFunction {
 }
 
 // 4) printTeacher function as required
-export function printTeacher(firstName: string, lastName: string): string {
+  export function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName[0]}. ${lastName}`;
 }
 
