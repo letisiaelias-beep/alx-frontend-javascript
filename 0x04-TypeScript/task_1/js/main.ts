@@ -9,7 +9,7 @@ export interface Teacher {
 }
 
 // 2) Directors interface extends Teacher
-export interface Director extends Teacher {
+export interface Directors extends Teacher {
   numberOfReports: number;
 }
 
@@ -18,10 +18,10 @@ export interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// 4) Function printTeacher implementation
-export function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
-}
+// 4) Function printTeacher implementation with destructuring
+export const printTeacher: printTeacherFunction = function({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  return `${firstName[0]}. ${lastName}`;
+};
 
 // ======== Examples ========
 
@@ -46,4 +46,4 @@ const director1: Directors = {
 console.log(director1);
 
 // printTeacher example
-console.log(printTeacher("John", "Doe")); // J. Doe
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
