@@ -86,3 +86,13 @@ export function teachClass(todayClass: Subjects): string {
 // Example checks
 console.log(teachClass('Math'));     // Teaching Math
 console.log(teachClass('History'));  // Teaching History
+// Add this after the Subjects type definition
+export type Subjects = 'Math' | 'History';
+
+// Correct function with todayClass: Subjects
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  }
+  return 'Teaching History';
+}
